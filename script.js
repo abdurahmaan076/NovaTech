@@ -1,39 +1,55 @@
-document.addEventListener('DOMContentLoaded', () => {
-    // 1. Hamburger
-    const menuBtn = document.getElementById('menu-toggle');
-    const menu = document.getElementById('mobile-menu');
+// 1. Hamburger Menu & Animatie
+const menuBtn = document.getElementById('menu-toggle');
+const mobileMenu = document.getElementById('mobile-menu');
 
-    menuBtn.addEventListener('click', () => {
-        menu.classList.toggle('active');
-    });
+menuBtn.addEventListener('click', () => {
+    mobileMenu.classList.toggle('active');
+    
+    // Streepjes animatie
+    const spans = menuBtn.querySelectorAll('span');
+    if (mobileMenu.classList.contains('active')) {
+        spans[0].style.transform = 'rotate(45deg) translate(6px, 6px)';
+        spans[1].style.opacity = '0';
+        spans[2].style.transform = 'rotate(-45deg) translate(6px, -7px)';
+    } else {
+        spans[0].style.transform = 'none';
+        spans[1].style.opacity = '1';
+        spans[2].style.transform = 'none';
+    }
+});
 
-    // 2. Scroll & Zoom
-    const exploreBtn = document.getElementById('explore-btn');
-    const heroImg = document.getElementById('hero-img');
-    const target = document.getElementById('tech-section');
+// 2. SUBMENU PRODUCTEN UITKLAPPEN
+const productToggle = document.getElementById('product-toggle');
+const submenu = document.getElementById('submenu');
 
-    exploreBtn.addEventListener('click', () => {
-        heroImg.style.transform = 'scale(1.1)';
-        setTimeout(() => {
-            target.scrollIntoView({ behavior: 'smooth' });
-        }, 300);
-    });
+productToggle.addEventListener('click', (e) => {
+    e.preventDefault();
+    submenu.classList.toggle('open');
+    // Verander het pijltje
+    productToggle.innerText = submenu.classList.contains('open') ? "📦 Producten ▴" : "📦 Producten ▾";
+});
 
-    // 3. Teller
-    let count = 0;
-    const countDisplay = document.getElementById('cart-count');
-    const buttons = document.querySelectorAll('.btn-add');
+// 3. Scroll naar tech sectie met Zoom
+const exploreBtn = document.getElementById('explore-btn');
+const techSection = document.getElementById('tech-section');
+const heroImage = document.querySelector('.tv-image-container img');
 
-    buttons.forEach(btn => {
-        btn.addEventListener('click', () => {
-            count++;
-            countDisplay.innerText = count;
-            btn.innerText = "Toegevoegd!";
-            btn.style.background = "#00c3ff";
-            setTimeout(() => {
-                btn.innerText = "In Winkelwagen";
-                btn.style.background = "black";
-            }, 1000);
-        });
+exploreBtn.addEventListener('click', () => {
+    heroImage.style.transform = 'scale(1.1)';
+    setTimeout(() => {
+        techSection.scrollIntoView({ behavior: 'smooth' });
+    }, 300);
+});
+
+// 4. Winkelwagen Teller
+let count = 0;
+const cartDisplay = document.getElementById('cart-count');
+
+document.querySelectorAll('.btn-add').forEach(button => {
+    button.addEventListener('click', () => {
+        count++;
+        cartDisplay.innerText = count;
+        button.innerText = "Toegevoegd!";
+        setTimeout(() => { button.innerText = "In Winkelwagen"; }, 1000);
     });
 });
