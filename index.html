@@ -2,48 +2,61 @@
 <html lang="nl">
 <head>
     <meta charset="UTF-8">
-    <title>iPhone 17 Pro Shop</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NovaTech Store</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<div class="product-card">
-    <div class="badge">Podium Prijzen 2026</div>
+    <nav class="navbar">
+        <div class="logo">Nova<span>Tech</span></div>
+        <div class="nav-links">
+            <a href="#">Home</a>
+            <a href="#">Producten</a>
+            <button class="cart-btn">🛒 <span id="cart-count">0</span></button>
+        </div>
+    </nav>
 
-    <div class="image-section">
-        <img src="<span style='color: blue;'>PLAK_HIER_LINK_ORANJE_IPHONE_17_PRO</span>" id="main-display">
-    </div>
-
-    <div class="product-info">
-        <h1>iPhone 17 Pro</h1>
-        <p class="price">€65,00 p/m <span class="old-price">€249,00</span></p>
-
-        <div class="selection">
-            <p><strong>1. Kies kleur</strong></p>
-            <div class="color-picker">
-                
-                <span class="dot active" 
-                      data-img="<span style='color: blue;'>PLAK_HIER_LINK_ORANJE_IPHONE_17_PRO</span>" 
-                      style="background-color: <span style='color: orange;'>#d57d4a</span>;">
-                </span>
-
-                <span class="dot" 
-                      data-img="<span style='color: blue;'>PLAK_HIER_LINK_BLAUWE_IPHONE_17_PRO</span>" 
-                      style="background-color: <span style='color: orange;'>#2e3641</span>;">
-                </span>
-
-                <span class="dot" 
-                      data-img="<span style='color: blue;'>PLAK_HIER_LINK_ZILVERE_IPHONE_17_PRO</span>" 
-                      style="background-color: <span style='color: orange;'>#b1b1b1</span>;">
-                </span>
-
+    <main class="container">
+        <div class="product-card">
+            <div class="badge">Podium Prijzen</div>
+            <div class="image-section">
+                <img src="**<span style='color: blue;'>NAAM_FOTO_ORANJE.png</span>**" id="main-display" alt="iPhone 17 Pro">
+            </div>
+            <div class="product-info">
+                <h1>iPhone 17 Pro</h1>
+                <p class="price">€65,00 p/m <span class="old-price">€249,00</span></p>
+                <div class="selection">
+                    <p><strong>1. Kies kleur</strong></p>
+                    <div class="color-picker">
+                        <span class="dot active" data-img="**<span style='color: blue;'>NAAM_FOTO_ORANJE.png</span>**" style="background-color: #d57d4a;"></span>
+                        <span class="dot" data-img="**<span style='color: blue;'>NAAM_FOTO_BLAUW.png</span>**" style="background-color: #2e3641;"></span>
+                        <span class="dot" data-img="**<span style='color: blue;'>NAAM_FOTO_ZILVER.png</span>**" style="background-color: #b1b1b1;"></span>
+                    </div>
+                </div>
+                <button class="btn-bestel">Bestel nu</button>
             </div>
         </div>
 
-        <button class="btn-bestel">Bestel nu</button>
-    </div>
-</div>
+        <div class="product-card">
+            <img src="https://images.unsplash.com/photo-1593359677879-a4bb92f829d1?q=80&w=300" alt="Samsung TV">
+            <div class="product-info">
+                <h3>Samsung QLED TV</h3>
+                <p class="price">€899,00</p>
+                <button class="btn-bestel">Bestel</button>
+            </div>
+        </div>
 
-<script src="script.js"></script>
+        <div class="product-card">
+            <img src="https://images.unsplash.com/photo-1588423771073-b8903fbb85b5?q=80&w=300" alt="AirPods">
+            <div class="product-info">
+                <h3>AirPods Pro 3</h3>
+                <p class="price">€299,00</p>
+                <button class="btn-bestel">Bestel</button>
+            </div>
+        </div>
+    </main>
+
+    <script src="script.js"></script>
 </body>
 </html>
