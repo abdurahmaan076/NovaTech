@@ -3,32 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NovaTech | Premium Samsung Store</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700;800&display=swap" rel="stylesheet">
+    <title>NovaTech | Official Store</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
 <nav class="navbar">
     <div class="nav-container">
-        <div class="menu-wrapper">
-            <button class="hamburger-btn" id="menu-toggle">
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>
-            <div class="dropdown-menu" id="mobile-menu">
-                <div class="menu-header">Categorieën</div>
-                <a href="#tv-sectie" class="menu-item">📺 Samsung TV's</a>
-                <a href="#laptops" class="menu-item">💻 Laptops</a>
-                <a href="#computers" class="menu-item">🖥️ Desktop PC's</a>
-                <a href="#airpods" class="menu-item">🎧 Audio & Airpods</a>
-                <div class="menu-footer">Gratis verzending vanaf €50</div>
-            </div>
+        <button class="hamburger-btn" id="menu-toggle">
+            <span></span><span></span><span></span>
+        </button>
+        <div class="dropdown-menu" id="mobile-menu">
+            <a href="#tv-sectie" class="menu-item">Televisies</a>
+            <a href="#laptops" class="menu-item">Laptops</a>
+            <a href="#computers" class="menu-item">Computers</a>
         </div>
-
         <div class="logo">Nova<span>Tech</span></div>
-
         <div class="nav-right">
             <button class="cart-btn">🛒 <span id="cart-count">0</span></button>
         </div>
@@ -37,12 +28,10 @@
 
 <section class="tv-hero">
     <div class="tv-image-container">
-        <img src="https://images.unsplash.com/photo-1593784991095-a205069470b6?auto=format&fit=crop&q=80&w=1920" alt="Samsung Neo QLED" id="hero-img">
+        <img src="https://images.unsplash.com/photo-1593784991095-a205069470b6?auto=format&fit=crop&q=80&w=1920" id="hero-img">
         <div class="hero-overlay">
             <div class="hero-content">
-                <span class="brand-tag">Samsung Special</span>
                 <h1>Neo QLED 8K</h1>
-                <p>Ervaar beeld zoals nooit tevoren.</p>
                 <button class="scroll-btn" id="explore-btn">Kijk onze tech ↓</button>
             </div>
         </div>
@@ -51,101 +40,19 @@
 
 <main id="tech-section">
     <section id="tv-sectie" class="products">
-        <div class="container">
-            <h2>Onze Televisies</h2>
-            <div class="product-grid">
-                <div class="product-card">
-                    <img src="https://images.unsplash.com/photo-1593359677879-a4bb92f829d1?auto=format&fit=crop&q=80&w=400" alt="Samsung TV">
-                    <div class="product-info">
-                        <h3>Samsung Neo QLED</h3>
-                        <p class="price">€1.499,00</p>
-                        <button class="btn-add">In Winkelwagen</button>
-                    </div>
-                </div>
-                <div class="product-card">
-                    <img src="https://images.unsplash.com/photo-1509281373149-e957c6296406?auto=format&fit=crop&q=80&w=400" alt="Samsung TV">
-                    <div class="product-info">
-                        <h3>The Frame (2026)</h3>
-                        <p class="price">€1.199,00</p>
-                        <button class="btn-add">In Winkelwagen</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="laptops" class="products dark-bg">
-        <div class="container">
-            <h2>Laptops</h2>
-            <div class="product-grid">
-                <div class="product-card">
-                    <img src="https://images.unsplash.com/photo-1496181133206-80ce9b88a853?auto=format&fit=crop&q=80&w=400" alt="Galaxy Book">
-                    <div class="product-info">
-                        <h3>Galaxy Book Ultra</h3>
-                        <p class="price">€1.899,00</p>
-                        <button class="btn-add">In Winkelwagen</button>
-                    </div>
-                </div>
-                <div class="product-card">
-                    <img src="https://images.unsplash.com/photo-1531297484001-80022131f5a1?auto=format&fit=crop&q=80&w=400" alt="Laptop Pro">
-                    <div class="product-info">
-                        <h3>NovaBook Air</h3>
-                        <p class="price">€949,00</p>
-                        <button class="btn-add">In Winkelwagen</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="computers" class="products">
-        <div class="container">
-            <h2>Desktop PC's</h2>
-            <div class="product-grid">
-                <div class="product-card">
-                    <img src="https://images.unsplash.com/photo-1587831990711-23ca6441447b?auto=format&fit=crop&q=80&w=400" alt="Game PC">
-                    <div class="product-info">
-                        <h3>Nova Gaming PC</h3>
-                        <p class="price">€2.199,00</p>
-                        <button class="btn-add">In Winkelwagen</button>
-                    </div>
-                </div>
-                <div class="product-card">
-                    <img src="https://images.unsplash.com/photo-1593640408182-31c70c8268f5?auto=format&fit=crop&q=80&w=400" alt="Office PC">
-                    <div class="product-info">
-                        <h3>Nova Studio iMac Style</h3>
-                        <p class="price">€1.599,00</p>
-                        <button class="btn-add">In Winkelwagen</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="airpods" class="products dark-bg">
-        <div class="container">
-            <h2>Audio & Airpods</h2>
-            <div class="product-grid">
-                <div class="product-card">
-                    <img src="https://images.unsplash.com/photo-1588423771073-b8903fbb85b5?auto=format&fit=crop&q=80&w=400" alt="Airpods">
-                    <div class="product-info">
-                        <h3>NovaPods Air</h3>
-                        <p class="price">€149,00</p>
-                        <button class="btn-add">In Winkelwagen</button>
-                    </div>
+        <h2>Onze Tech</h2>
+        <div class="product-grid">
+            <div class="product-card">
+                <img src="https://images.unsplash.com/photo-1593359677879-a4bb92f829d1?auto=format&fit=crop&q=80&w=400">
+                <div class="product-info">
+                    <h3>Samsung Neo QLED</h3>
+                    <p class="price">€1.499,00</p>
+                    <button class="btn-add">In Winkelwagen</button>
                 </div>
             </div>
         </div>
     </section>
 </main>
-
-<footer>
-    <div class="footer-content">
-        <p><strong>NovaTech Store</strong></p>
-        <p>Gecertificeerd Samsung Partner 2026</p>
-        <p style="font-size: 0.8rem; margin-top: 20px; opacity: 0.6;">&copy; 2026 NovaTech Store</p>
-    </div>
-</footer>
 
 <script src="script.js"></script>
 </body>
