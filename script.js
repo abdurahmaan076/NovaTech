@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // Menu
+    // Menu logica
     const menuBtn = document.getElementById('menu-toggle');
     const mobileMenu = document.getElementById('mobile-menu');
     const productToggle = document.getElementById('product-toggle');
@@ -10,10 +10,9 @@ document.addEventListener('DOMContentLoaded', () => {
     productToggle.onclick = (e) => {
         e.preventDefault();
         submenu.classList.toggle('open');
-        productToggle.innerText = submenu.classList.contains('open') ? "📦 Producten ▴" : "📦 Producten ▾";
     };
 
-    // Hero Scroll
+    // Hero Scroll & Zoom
     const exploreBtn = document.getElementById('explore-btn');
     const heroImg = document.getElementById('hero-img');
     exploreBtn.onclick = () => {
@@ -23,7 +22,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }, 300);
     };
 
-    // KLEUR WISSELAAR (Fix)
+    // DE KLEURWISSELAAR FIX (Belangrijk!)
     const dots = document.querySelectorAll('.dot');
     dots.forEach(dot => {
         dot.addEventListener('click', function() {
@@ -31,16 +30,16 @@ document.addEventListener('DOMContentLoaded', () => {
             const img = card.querySelector('.main-img');
             const newSrc = this.getAttribute('data-img');
 
-            // Dots updaten
+            // Dots updaten in deze specifieke kaart
             card.querySelectorAll('.dot').forEach(d => d.classList.remove('active'));
             this.classList.add('active');
 
-            // Afbeelding wisselen
-            img.style.opacity = '0';
+            // Wisselen van foto met een snelle fade
+            img.style.opacity = '0.3';
             setTimeout(() => {
                 img.src = newSrc;
                 img.style.opacity = '1';
-            }, 200);
+            }, 100);
         });
     });
 
