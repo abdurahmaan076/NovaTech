@@ -1,55 +1,39 @@
-// 1. Hamburger Menu & Animatie
-const menuBtn = document.getElementById('menu-toggle');
-const mobileMenu = document.getElementById('mobile-menu');
-
-menuBtn.addEventListener('click', () => {
-    mobileMenu.classList.toggle('active');
+// Wacht tot de pagina geladen is
+document.addEventListener('DOMContentLoaded', () => {
     
-    // Streepjes animatie
-    const spans = menuBtn.querySelectorAll('span');
-    if (mobileMenu.classList.contains('active')) {
-        spans[0].style.transform = 'rotate(45deg) translate(6px, 6px)';
-        spans[1].style.opacity = '0';
-        spans[2].style.transform = 'rotate(-45deg) translate(6px, -7px)';
-    } else {
-        spans[0].style.transform = 'none';
-        spans[1].style.opacity = '1';
-        spans[2].style.transform = 'none';
-    }
-});
+    const menuBtn = document.getElementById('menu-toggle');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const productToggle = document.getElementById('product-toggle');
+    const submenu = document.getElementById('submenu');
+    const exploreBtn = document.getElementById('explore-btn');
+    const heroImg = document.getElementById('hero-img');
 
-// 2. SUBMENU PRODUCTEN UITKLAPPEN
-const productToggle = document.getElementById('product-toggle');
-const submenu = document.getElementById('submenu');
+    // 1. Hamburger Openen
+    menuBtn.addEventListener('click', () => {
+        mobileMenu.classList.toggle('active');
+    });
 
-productToggle.addEventListener('click', (e) => {
-    e.preventDefault();
-    submenu.classList.toggle('open');
-    // Verander het pijltje
-    productToggle.innerText = submenu.classList.contains('open') ? "📦 Producten ▴" : "📦 Producten ▾";
-});
+    // 2. Submenu Openen
+    productToggle.addEventListener('click', () => {
+        submenu.classList.toggle('open');
+    });
 
-// 3. Scroll naar tech sectie met Zoom
-const exploreBtn = document.getElementById('explore-btn');
-const techSection = document.getElementById('tech-section');
-const heroImage = document.querySelector('.tv-image-container img');
+    // 3. Scroll Actie
+    exploreBtn.addEventListener('click', () => {
+        heroImg.style.transform = 'scale(1.1)';
+        setTimeout(() => {
+            document.getElementById('tech-section').scrollIntoView({ behavior: 'smooth' });
+        }, 300);
+    });
 
-exploreBtn.addEventListener('click', () => {
-    heroImage.style.transform = 'scale(1.1)';
-    setTimeout(() => {
-        techSection.scrollIntoView({ behavior: 'smooth' });
-    }, 300);
-});
-
-// 4. Winkelwagen Teller
-let count = 0;
-const cartDisplay = document.getElementById('cart-count');
-
-document.querySelectorAll('.btn-add').forEach(button => {
-    button.addEventListener('click', () => {
-        count++;
-        cartDisplay.innerText = count;
-        button.innerText = "Toegevoegd!";
-        setTimeout(() => { button.innerText = "In Winkelwagen"; }, 1000);
+    // 4. Cart Teller
+    let count = 0;
+    document.querySelectorAll('.btn-add').forEach(btn => {
+        btn.addEventListener('click', () => {
+            count++;
+            document.getElementById('cart-count').innerText = count;
+            btn.innerText = "Toegevoegd!";
+            setTimeout(() => { btn.innerText = "In Winkelwagen"; }, 1000);
+        });
     });
 });
