@@ -1,56 +1,57 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // Menu logica
-    const menuBtn = document.getElementById('menu-toggle');
-    const mobileMenu = document.getElementById('mobile-menu');
-    const productToggle = document.getElementById('product-toggle');
-    const submenu = document.getElementById('submenu');
-
-    menuBtn.onclick = () => mobileMenu.classList.toggle('active');
-    
-    productToggle.onclick = (e) => {
-        e.preventDefault();
-        submenu.classList.toggle('open');
-    };
-
-    // Hero Scroll & Zoom
-    const exploreBtn = document.getElementById('explore-btn');
-    const heroImg = document.getElementById('hero-img');
-    exploreBtn.onclick = () => {
-        heroImg.style.transform = 'scale(1.1)';
-        setTimeout(() => {
-            document.getElementById('tech-section').scrollIntoView({ behavior: 'smooth' });
-        }, 300);
-    };
-
-    // DE KLEURWISSELAAR FIX (Belangrijk!)
+    // 1. Zoek alle kleur-bolletjes op de pagina
     const dots = document.querySelectorAll('.dot');
-    dots.forEach(dot => {
-        dot.addEventListener('click', function() {
-            const card = this.closest('.product-card');
-            const img = card.querySelector('.main-img');
-            const newSrc = this.getAttribute('data-img');
-
-            // Dots updaten in deze specifieke kaart
-            card.querySelectorAll('.dot').forEach(d => d.classList.remove('active'));
-            this.classList.add('active');
-
-            // Wisselen van foto met een snelle fade
-            img.style.opacity = '0.3';
-            setTimeout(() => {
-                img.src = newSrc;
-                img.style.opacity = '1';
-            }, 100);
-        });
-    });
-
-    // Cart Teller
+    
+    // 2. Zoek de winkelwagen teller (als je die hebt)
+    const cartCount = document.getElementById('cart-count');
     let count = 0;
-    document.querySelectorAll('.btn-add').forEach(btn => {
-        btn.onclick = () => {
-            count++;
-            document.getElementById('cart-count').innerText = count;
-            btn.innerText = "✅ Toegevoegd";
-            setTimeout(() => btn.innerText = "In Winkelwagen", 1000);
+
+    // 3. Zorg dat elk bolletje luistert naar een KLIK
+    dots.forEach(dot => {
+        dot.onclick = function() {
+            // Zoek de product-kaart waar dit bolletje in zit
+            const card = this.closest('.product-card');
+            
+            // Zoek de grote afbeelding binnen DEZE kaart
+            const mainImg = card.querySelector('.main-img');
+
+            // --- DE FOTO WISSEL ---
+            // De computer pakt hier de link die jij op de BLAUWE plek in de HTML hebt gezet:
+            const nieuweFotoLink = this.getAttribute('data-img');
+
+            // Maak de foto heel even doorzichtig voor een mooi effect
+            mainImg.style.opacity = '0.3';
+
+            setTimeout(() => {
+                // Verander de bron (src) naar jouw nieuwe link
+                mainImg.src = nieuweFotoLink;
+                // Maak de foto weer volledig zichtbaar
+                mainImg.style.opacity = '1';
+            }, 150);
+
+            // --- DE BLAUWE CIRKEL WISSEL ---
+            // Haal de blauwe rand weg bij alle bolletjes in deze kaart
+            card.querySelectorAll('.dot').forEach(d => d.classList.remove('active'));
+            // Zet de blauwe rand op het bolletje waar je net op klikte
+            this.classList.add('active');
         };
     });
+
+    // 4. Optioneel: Bestel-knop logica
+    const orderBtn = document.querySelector('.btn-bestel');
+    if (orderBtn) {
+        orderBtn.onclick = function() {
+            count++;
+            if (cartCount) cartCount.innerText = count;
+            
+            const originalText = this.innerText;
+            this.innerText = "✅ Toegevoegd!";
+            this.style.backgroundColor = "#28a745"; // Groen
+            
+            setTimeout(() => {
+                this.innerText = originalText;
+                this.style.backgroundColor = "#005cff"; // Terug naar blauw
+            }, 1500);
+        };
+    }
 });
