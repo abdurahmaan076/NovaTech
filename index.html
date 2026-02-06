@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NovaTech Store</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;800&display=swap" rel="stylesheet">
+    <title>NovaTech | Official Apple & Samsung Dealer</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -19,22 +19,18 @@
             </button>
             <div class="dropdown-menu" id="mobile-menu">
                 <a href="#" class="menu-item">🏠 Home</a>
-                
                 <div class="submenu-container">
                     <button class="menu-item" id="product-toggle">📦 Producten ▾</button>
                     <div class="submenu-items" id="submenu">
-                        <a href="#tv-sectie" class="menu-sub-item">📺 TV's</a>
-                        <a href="#telefoons" class="menu-sub-item">📱 Telefoons</a>
-                        <a href="#airpods" class="menu-sub-item">🎧 Airpods</a>
+                        <a href="#tv-sectie" class="menu-sub-item">📺 Samsung TV's</a>
+                        <a href="#telefoons" class="menu-sub-item">📱 iPhones</a>
+                        <a href="#airpods" class="menu-sub-item">🎧 AirPods</a>
                     </div>
                 </div>
-
                 <a href="#contact" class="menu-item">📞 Contact</a>
             </div>
         </div>
-
         <div class="logo">Nova<span>Tech</span></div>
-
         <div class="nav-right">
             <button class="cart-btn">🛒 <span id="cart-count">0</span></button>
         </div>
@@ -47,38 +43,73 @@
         <div class="hero-overlay">
             <div class="hero-content">
                 <h1>Samsung Neo QLED</h1>
-                <p>Kijk onze tech van de toekomst.</p>
-                <button class="scroll-btn" id="explore-btn">Ontdek nu ↓</button>
+                <p>Beleef de toekomst van beeld.</p>
+                <button class="scroll-btn" id="explore-btn">Ontdek Collectie ↓</button>
             </div>
         </div>
     </div>
 </section>
 
 <main id="tech-section">
-    <section id="tv-sectie" class="products">
-        <h2>Samsung Televisies</h2>
-        <div class="product-grid">
-            <div class="product-card">
-                <img src="https://images.unsplash.com/photo-1593359677879-a4bb92f829d1?auto=format&fit=crop&q=80&w=400" alt="TV">
-                <div class="product-info">
-                    <h3>Neo QLED 8K</h3>
-                    <p class="price">€1.499,00</p>
-                    <button class="btn-add">In Winkelwagen</button>
+    <section id="telefoons" class="products">
+        <div class="container">
+            <h2>De Nieuwe iPhone Collectie</h2>
+            <div class="product-grid">
+                
+                <div class="product-card" id="iphone17pro">
+                    <div class="badge">Nieuw</div>
+                    <img src="https://images.unsplash.com/photo-1696446701796-da61225697cc?q=80&w=400" alt="iPhone 17 Pro" class="main-img">
+                    <div class="product-info">
+                        <h3>iPhone 17 Pro</h3>
+                        <p class="price">€1.329,00</p>
+                        <div class="color-picker">
+                            <span class="dot active" data-color="titanium" data-img="https://images.unsplash.com/photo-1696446701796-da61225697cc?q=80&w=400" style="background: #4e4e4e;"></span>
+                            <span class="dot" data-color="silver" data-img="https://images.unsplash.com/photo-1678652231575-b9693e50669b?q=80&w=400" style="background: #e2e2e2;"></span>
+                            <span class="dot" data-color="gold" data-img="https://images.unsplash.com/photo-1616348436168-de43ad0db179?q=80&w=400" style="background: #e6d3b3;"></span>
+                        </div>
+                        <button class="btn-add">In Winkelwagen</button>
+                    </div>
                 </div>
-            </div>
-        </div>
-    </section>
 
-    <section id="telefoons" class="products" style="background:#f9f9f9;">
-        <h2>Smartphones</h2>
-        <div class="product-grid">
-            <div class="product-card">
-                <img src="https://images.unsplash.com/photo-1610945265064-0e34e5519bbf?auto=format&fit=crop&q=80&w=400" alt="Phone">
-                <div class="product-info">
-                    <h3>Galaxy S26 Ultra</h3>
-                    <p class="price">€1.199,00</p>
-                    <button class="btn-add">In Winkelwagen</button>
+                <div class="product-card" id="iphone17">
+                    <img src="https://images.unsplash.com/photo-1616348436168-de43ad0db179?q=80&w=400" alt="iPhone 17" class="main-img">
+                    <div class="product-info">
+                        <h3>iPhone 17</h3>
+                        <p class="price">€929,00</p>
+                        <div class="color-picker">
+                            <span class="dot active" data-color="black" data-img="https://images.unsplash.com/photo-1616348436168-de43ad0db179?q=80&w=400" style="background: #222;"></span>
+                            <span class="dot" data-color="blue" data-img="https://images.unsplash.com/photo-1592750475338-74b7b21085ab?q=80&w=400" style="background: #a2b9d6;"></span>
+                        </div>
+                        <button class="btn-add">In Winkelwagen</button>
+                    </div>
                 </div>
+
+                <div class="product-card" id="iphone16pro">
+                    <img src="https://images.unsplash.com/photo-1695048133142-1a20484d256e?q=80&w=400" alt="iPhone 16 Pro" class="main-img">
+                    <div class="product-info">
+                        <h3>iPhone 16 Pro</h3>
+                        <p class="price">€1.129,00</p>
+                        <div class="color-picker">
+                            <span class="dot active" data-color="titan" data-img="https://images.unsplash.com/photo-1695048133142-1a20484d256e?q=80&w=400" style="background: #555;"></span>
+                            <span class="dot" data-color="white" data-img="https://images.unsplash.com/photo-1695048132717-570ae6ca988b?q=80&w=400" style="background: #fff; border: 1px solid #ddd;"></span>
+                        </div>
+                        <button class="btn-add">In Winkelwagen</button>
+                    </div>
+                </div>
+
+                <div class="product-card" id="iphone16">
+                    <img src="https://images.unsplash.com/photo-1621330396173-e41b1cafd17f?q=80&w=400" alt="iPhone 16" class="main-img">
+                    <div class="product-info">
+                        <h3>iPhone 16</h3>
+                        <p class="price">€829,00</p>
+                        <div class="color-picker">
+                            <span class="dot active" data-color="pink" data-img="https://images.unsplash.com/photo-1621330396173-e41b1cafd17f?q=80&w=400" style="background: #f7c5d2;"></span>
+                            <span class="dot" data-color="green" data-img="https://images.unsplash.com/photo-1556656793-062ff98782ee?q=80&w=400" style="background: #c1e1c5;"></span>
+                        </div>
+                        <button class="btn-add">In Winkelwagen</button>
+                    </div>
+                </div>
+
             </div>
         </div>
     </section>
