@@ -1,158 +1,63 @@
-/* --- BASIS INSTELLINGEN --- */
 :root {
     --primary: #00c3ff;
-    --dark: #000000;
-    --white: #ffffff;
-    --gray: #f4f4f4;
+    --dark: #000;
+    --white: #fff;
 }
 
-* { 
-    margin: 0; 
-    padding: 0; 
-    box-sizing: border-box; 
-}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Inter', sans-serif; overflow-x: hidden; }
+html { scroll-behavior: smooth; }
 
-html { 
-    scroll-behavior: smooth; 
-}
-
-body { 
-    font-family: 'Inter', sans-serif; 
-    line-height: 1.6;
-}
-
-/* FIX: Zorgt dat titels niet achter de navbar verdwijnen bij scrollen */
-section {
-    scroll-margin-top: 80px;
-}
-
-/* --- NAVBAR --- */
+/* NAVBAR */
 .navbar {
-    position: fixed; 
-    top: 0; 
-    width: 100%; 
-    height: 70px;
-    background: var(--white); 
-    z-index: 2000; /* Heel hoog zodat het overal bovenop ligt */
-    display: flex; 
-    align-items: center;
+    position: fixed; top: 0; width: 100%; height: 70px;
+    background: var(--white); z-index: 2000; display: flex; align-items: center;
     box-shadow: 0 2px 10px rgba(0,0,0,0.1);
 }
 
-.nav-container { 
-    width: 90%; 
-    margin: 0 auto; 
-    display: flex; 
-    justify-content: space-between; 
-    align-items: center; 
-}
+.nav-container { width: 90%; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; }
+.logo { font-weight: 800; font-size: 1.5rem; text-transform: uppercase; }
+.logo span { color: var(--primary); }
 
-.logo { 
-    font-weight: 800; 
-    font-size: 1.5rem; 
-    text-transform: uppercase;
-}
-.logo span { 
-    color: var(--primary); 
-}
+/* HAMBURGER */
+.hamburger-btn { background: none; border: none; cursor: pointer; display: flex; flex-direction: column; gap: 5px; padding: 10px; }
+.hamburger-btn span { width: 25px; height: 3px; background: black; transition: 0.3s; }
 
-/* --- HAMBURGER KNOP --- */
-.hamburger-btn { 
-    background: none; 
-    border: none; 
-    cursor: pointer; 
-    display: flex; 
-    flex-direction: column; 
-    gap: 5px; 
-    padding: 10px;
-}
-
-.hamburger-btn span { 
-    width: 25px; 
-    height: 3px; 
-    background: black; 
-    transition: 0.3s; 
-}
-
-/* --- HET DROPDOWN MENU --- */
+/* DROPDOWN MENU */
 .dropdown-menu {
-    position: absolute; 
-    top: 70px; 
-    left: 0; 
-    background: var(--white); 
-    width: 280px;
-    display: none; /* Standaard onzichtbaar */
-    flex-direction: column; 
-    box-shadow: 5px 5px 15px rgba(0,0,0,0.1);
-    border-bottom-right-radius: 10px;
-    z-index: 3000;
+    position: absolute; top: 70px; left: 0; background: var(--white); width: 260px;
+    display: none; flex-direction: column; box-shadow: 5px 5px 15px rgba(0,0,0,0.1);
+    z-index: 3000; border-bottom-right-radius: 10px;
 }
 
-/* DEZE REGEL IS CRUCIAAL: Als JS de class 'active' toevoegt */
-.dropdown-menu.active { 
-    display: flex !important; 
-}
+/* Deze class wordt door JS toegevoegd */
+.dropdown-menu.active { display: flex !important; }
 
 .menu-item { 
-    padding: 15px 20px; 
-    text-decoration: none; 
-    color: black; 
-    font-weight: bold; 
-    border: none; 
-    background: none; 
-    text-align: left; 
-    cursor: pointer; 
-    border-bottom: 1px solid #eee; 
-    display: block;
-    transition: 0.2s;
+    padding: 15px 20px; text-decoration: none; color: black; font-weight: bold; 
+    border: none; background: none; text-align: left; cursor: pointer; width: 100%;
+    border-bottom: 1px solid #f0f0f0; font-family: inherit; font-size: 1rem;
 }
 
-.menu-item:hover { 
-    background: var(--gray); 
-    color: var(--primary); 
-}
+.submenu-items { display: none; background: #f9f9f9; }
+.submenu-items.open { display: block !important; }
+.menu-sub-item { display: block; padding: 12px 40px; text-decoration: none; color: #666; font-size: 0.9rem; }
 
-/* --- SUBMENU (PRODUCTEN) --- */
-.submenu-items { 
-    display: none; 
-    background: #f9f9f9; 
-}
+/* HERO */
+.tv-hero { height: 100vh; position: relative; overflow: hidden; }
+.tv-hero img { width: 100%; height: 100%; object-fit: cover; transition: 1s; }
+.hero-overlay { position: absolute; inset: 0; background: rgba(0,0,0,0.4); display: flex; align-items: center; justify-content: center; color: white; text-align: center; }
+.hero-content h1 { font-size: 3.5rem; font-weight: 800; }
 
-/* Als JS de class 'open' toevoegt aan het submenu */
-.submenu-items.open { 
-    display: block !important; 
-}
+.scroll-btn { padding: 15px 35px; border-radius: 50px; border: none; background: var(--primary); color: white; cursor: pointer; font-weight: bold; margin-top: 25px; }
 
-.menu-sub-item { 
-    display: block; 
-    padding: 12px 40px; 
-    text-decoration: none; 
-    color: #555; 
-    font-size: 0.9rem;
-    border-bottom: 1px solid #eee;
-}
+/* PRODUCTEN */
+.products { padding: 80px 5%; text-align: center; scroll-margin-top: 80px; }
+.product-grid { display: flex; justify-content: center; margin-top: 30px; }
+.product-card { padding: 30px; background: white; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); max-width: 400px; }
+.product-card img { width: 100%; border-radius: 10px; }
+.price { color: var(--primary); font-weight: 800; font-size: 1.2rem; margin: 15px 0; }
+.btn-add { background: black; color: white; border: none; padding: 12px; width: 100%; border-radius: 10px; cursor: pointer; font-weight: bold; }
 
-.menu-sub-item:hover { 
-    background: #ececec; 
-}
-
-/* --- HERO SECTIE --- */
-.tv-hero { 
-    height: 100vh; 
-    overflow: hidden; 
-    position: relative; 
-}
-
-.tv-hero img { 
-    width: 100%; 
-    height: 100%; 
-    object-fit: cover; 
-    transition: 1.5s ease-out; 
-}
-
-.hero-overlay { 
-    position: absolute; 
-    inset: 0; 
-    background: rgba(0,0,0,0.5); 
-    display: flex; 
-    align-
+.cart-btn { background: none; border: none; font-size: 1.3rem; cursor: pointer; position: relative; }
+#cart-count { background: var(--primary); color: white; font-size: 0.7rem; padding: 2px 6px; border-radius: 50%; position: absolute; top: -5px; right: -10px; }
