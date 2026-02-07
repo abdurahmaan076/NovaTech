@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NovaTech Store - Werkende Versie</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;800&display=swap" rel="stylesheet">
+    
+    <style>
+        /* --- ALLES-IN-ÉÉN CSS --- */
+        :root { --primary: #00c3ff; --dark: #000; }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Inter', sans-serif; background: #fff; }
+        html { scroll-behavior: smooth; }
+
+        .navbar {
+            position: fixed; top: 0; width: 100%; height: 70px;
+            background: white; z-index: 9999; display: flex; align-items: center;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .nav-container { width: 90%; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; }
+        .logo { font-weight: 800; font-size: 1.5rem; text-transform: uppercase; }
+        .logo span { color: var(--primary); }
+
+        .hamburger-btn { 
+            background: none; border: 2px solid #eee; cursor: pointer; 
+            display: flex; flex-direction: column; gap: 4px; padding: 8px; border-radius: 5px;
+        }
+        .hamburger-btn span { width: 22px; height: 3px; background: black; display: block; }
+
+        /* HET MENU */
+        .dropdown-menu {
+            position: absolute; top: 70px; left: 0; background: white; width: 260px;
+            display: none; /* UIT */
+            flex-direction: column; box-shadow: 5px 5px 15px rgba(0,0,0,0.1);
+            z-index: 10000;
+        }
+
+        /* DIT MAAKT HET ZICHTBAAR */
+        .dropdown-menu.active { 
+            display: flex !important; 
+        }
+
+        .menu-item { 
+            padding: 15px 20px; text-decoration: none; color: black; font-weight: bold; 
+            border-bottom: 1px solid #f0f0f0; background: none; text-align: left; cursor: pointer;
+            font-size: 1rem; border-left: none; border-right: none; border-top: none; width: 100%;
+        }
+
+        .submenu-items { display: none; background: #f9f9f9; }
+        .submenu-items.open { display: block !important; }
+        .menu-sub-item { display: block; padding: 12px 40px; text-decoration: none; color: #555; }
+
+        .tv-hero { height: 100vh; position: relative; overflow: hidden; }
+        .tv-hero img { width: 100%; height: 100%; object-fit: cover; }
+        .hero-overlay { position: absolute; inset: 0; background: rgba(0,0,0,0.4); display: flex; align-items: center; justify-content: center; color: white; text-align: center; }
+        
+        .scroll-btn { padding: 15px 35px; border-radius: 50px; border: none; background: var(--primary); color: white; cursor: pointer; font-weight: bold; margin-top: 20px; }
+
+        .products { padding: 80px 5%; text-align: center; }
+        .product-card { padding: 30px; background: white; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); max-width: 400px; margin: 0 auto; }
+        .btn-add { background: black; color: white; border: none; padding: 12px; width: 100%; border-radius: 10px; cursor: pointer; margin-top: 15px; }
+        
+        .cart-btn { background: none; border: none; font-size: 1.3rem; cursor: pointer; position: relative; }
+        #cart-count { background: var(--primary); color: white; font-size: 0.7rem; padding: 2px 6px; border-radius: 50%; position: absolute; top: -5px; right: -10px; }
+    </style>
+</head>
+<body>
+
+<nav class="navbar">
+    <div class="nav-container">
+        <button class="hamburger-btn" id="menu-toggle">
+            <span></span><span></span><span></span>
+        </button>
+        
+        <div class="dropdown-menu" id="mobile-menu">
+            <a href="#" class="menu-item">🏠 Home</a>
+            <button class="menu-item" id="product-toggle">📦 Producten ▾</button>
+            <div class="submenu-items" id="submenu">
+                <a href="#tv-sectie" class="menu-sub-item">📺 Televisies</a>
+                <a href="#contact" class="menu-sub-item">📍 Adres</a>
+            </div>
+            <a href="#contact" class="menu-item">📞 Contact</a>
+        </div>
+
+        <div class="logo">Nova<span>Tech</span></div>
+        <button class="cart-btn">🛒 <span id="cart-count">0</span></button>
+    </div>
+</nav>
+
+<section class="tv-hero">
+    <img src="https://www.intelligenthq.com/wp-content/uploads/2020/09/How-Tech-is-Changing-the-Way-we-Work.jpg" alt="Hero">
+    <div class="hero-overlay">
+        <div class="hero-content">
+            <h1>NovaTech</h1>
+            <p>De toekomst van tech.</p>
+            <button class="scroll-btn" id="explore-btn">Ontdek nu ↓</button>
+        </div>
+    </div>
+</section>
+
+<main>
+    <section id="tv-sectie" class="products">
+        <h2>Producten</h2>
+        <div class="product-card">
+            <img src="https://images.unsplash.com/photo-1593359677879-a4bb92f829d1?auto=format&fit=crop&q=80&w=300" alt="TV" style="width:100%; border-radius:10px;">
+            <h3>Neo QLED 8K</h3>
+            <button class="btn-add">In Winkelwagen</button>
+        </div>
+    </section>
+
+    <section id="contact" class="products" style="background: #f9f9f9;">
+        <h2>Contact</h2>
+        <p>Techstraat 101, Eindhoven</p>
+    </section>
+</main>
+
+<script>
+    /* --- ALLES-IN-ÉÉN JAVASCRIPT --- */
+    document.addEventListener('DOMContentLoaded', () => {
+        const menuBtn = document.getElementById('menu-toggle');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const productToggle = document.getElementById('product-toggle');
+        const submenu = document.getElementById('submenu');
+
+        // 1. MENU OPENEN
+        menuBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            mobileMenu.classList.toggle('active');
+            console.log("Klik op hamburger gedetecteerd");
+        });
+
+        // 2. PRODUCTEN OPENEN
+        productToggle.addEventListener('click', (e) => {
+            e.stopPropagation();
+            submenu.classList.toggle('open');
+        });
+
+        // 3. SLUITEN BIJ KLIK BUITEN MENU
+        document.addEventListener('click', () => {
+            mobileMenu.classList.remove('active');
+        });
+
+        // 4. WINKELWAGEN
+        let count = 0;
+        document.querySelectorAll('.btn-add').forEach(btn => {
+            btn.addEventListener('click', () => {
+                count++;
+                document.getElementById('cart-count').innerText = count;
+                btn.innerText = "Toegevoegd!";
+                setTimeout(() => btn.innerText = "In Winkelwagen", 1000);
+            });
+        });
+
+        // 5. SCROLL
+        document.getElementById('explore-btn').onclick = () => {
+            document.getElementById('tv-sectie').scrollIntoView({ behavior: 'smooth' });
+        };
+    });
+</script>
+
+</body>
+</html>
