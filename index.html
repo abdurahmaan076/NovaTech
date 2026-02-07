@@ -6,25 +6,18 @@
     <title>NovaTech Store</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;800&display=swap" rel="stylesheet">
     <style>
-        /* Volledige styling inbegrepen voor direct resultaat */
         body { font-family: 'Inter', sans-serif; margin: 0; background: #fff; color: #333; }
         .navbar { background: #fff; padding: 20px; border-bottom: 1px solid #eee; display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 100; }
         .logo { font-weight: 800; letter-spacing: 1px; text-transform: uppercase; }
         .logo span { color: #00c3ff; }
-        
         .tv-hero { position: relative; height: 50vh; overflow: hidden; }
         .tv-hero img { width: 100%; height: 100%; object-fit: cover; }
         .hero-overlay { position: absolute; inset: 0; background: rgba(0,0,0,0.5); display: flex; align-items: center; justify-content: center; color: white; text-align: center; }
-        
-        .scroll-btn { background: #00c3ff; color: white; border: none; padding: 15px 30px; border-radius: 50px; cursor: pointer; font-weight: bold; margin-top: 15px; transition: 0.3s; }
-        .scroll-btn:hover { transform: scale(1.05); background: #0099cc; }
-
+        .scroll-btn { background: #00c3ff; color: white; border: none; padding: 15px 30px; border-radius: 50px; cursor: pointer; font-weight: bold; margin-top: 15px; }
         .products { padding: 40px 20px; max-width: 1100px; margin: 0 auto; }
         .product-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px; }
-        .product-card { border: 1px solid #eee; border-radius: 15px; padding: 15px; text-align: center; transition: 0.3s; position: relative; }
-        .product-card:hover { border-color: #00c3ff; }
+        .product-card { border: 1px solid #eee; border-radius: 15px; padding: 15px; text-align: center; transition: 0.3s; }
         .product-card img { width: 100%; height: 200px; object-fit: contain; margin-bottom: 10px; }
-        
         .price { font-weight: bold; color: #00c3ff; margin: 5px 0; font-size: 1.2rem; }
         .btn-add { background: #1a1a2e; color: white; border: none; padding: 12px; width: 100%; border-radius: 8px; cursor: pointer; font-weight: bold; }
         .category-title { border-left: 5px solid #00c3ff; padding-left: 10px; margin: 30px 0 20px; font-size: 1.5rem; }
@@ -34,66 +27,54 @@
 
 <nav class="navbar">
     <div class="logo">NOVA<span>TECH</span></div>
-    <div style="font-size: 1.2rem; cursor: pointer;">🛒 <span id="cart-count">0</span></div>
+    <div style="font-size: 1.2rem;">🛒 0</div>
 </nav>
 
 <section class="tv-hero">
-    <img src="https://www.intelligenthq.com/wp-content/uploads/2020/09/How-Tech-is-Changing-the-Way-we-Work.jpg" alt="Hero Background">
+    <img src="https://images.unsplash.com/photo-1550745165-9bc0b252726f?w=1200" alt="Tech Hero">
     <div class="hero-overlay">
         <div>
             <h1>NovaTech Store</h1>
-            <p>De tech van de toekomst.</p>
-            <button class="scroll-btn" onclick="scrollToIphone()">Ontdek nu ↓</button>
+            <p>Welkom bij de toekomst.</p>
+            <button class="scroll-btn" onclick="document.getElementById('mijn-iphone').scrollIntoView({behavior: 'smooth', block: 'center'})">Ontdek nu ↓</button>
         </div>
     </div>
 </section>
 
 <main class="products">
-    <h2 style="text-align:center; font-size: 2rem;">🔥 Best Verkocht</h2>
+    <h2 style="text-align:center;">🔥 Best Verkocht</h2>
     
     <h3 class="category-title">Top Televisies & Smartphones</h3>
     <div class="product-grid">
         <div class="product-card">
-            <img src="https://images.unsplash.com/photo-1593359677879-a4bb92f829d1?w=400" alt="TV 1">
+            <img src="https://images.unsplash.com/photo-1593359677879-a4bb92f829d1?w=400">
             <h3>Neo QLED 8K</h3>
             <p class="price">€1.499,00</p>
             <button class="btn-add">In Winkelwagen</button>
         </div>
 
-        <div class="product-card" id="mijn-iphone" style="border: 2px solid #00c3ff; background: #fafafa;">
-            <img src="https://i.postimg.cc/8P6S8Lq8/iphone16-zwart.png" alt="iPhone 16 Zwart">
+        <div class="product-card" id="mijn-iphone" style="border: 2px solid #00c3ff; background: #fdfdfd;">
+            <img src="https://images.unsplash.com/photo-1616348436168-de43ad0db179?w=400" alt="iPhone 16 Zwart">
             <h3>iPhone 16 Zwart</h3>
             <p class="price">€969,00</p>
             <button class="btn-add">In Winkelwagen</button>
         </div>
 
         <div class="product-card">
-            <img src="https://images.unsplash.com/photo-1593784991095-a205069470b6?w=400" alt="TV 2">
+            <img src="https://images.unsplash.com/photo-1593784991095-a205069470b6?w=400">
             <h3>Crystal UHD 4K</h3>
             <p class="price">€899,00</p>
             <button class="btn-add">In Winkelwagen</button>
         </div>
 
         <div class="product-card">
-            <img src="https://images.unsplash.com/photo-1560169897-bb334e554b7c?w=400" alt="TV 3">
+            <img src="https://images.unsplash.com/photo-1560169897-bb334e554b7c?w=400">
             <h3>The Frame Edition</h3>
             <p class="price">€1.099,00</p>
             <button class="btn-add">In Winkelwagen</button>
         </div>
     </div>
 </main>
-
-<script>
-    function scrollToIphone() {
-        const element = document.getElementById("mijn-iphone");
-        element.scrollIntoView({ behavior: "smooth", block: "center" });
-        
-        // Effect: kaart flitst even blauw
-        element.style.transition = "0.5s";
-        element.style.boxShadow = "0 0 30px #00c3ff";
-        setTimeout(() => { element.style.boxShadow = "none"; }, 1500);
-    }
-</script>
 
 </body>
 </html>
