@@ -1,18 +1,39 @@
+// Wacht tot de pagina geladen is
 document.addEventListener('DOMContentLoaded', () => {
-    const dots = document.querySelectorAll('.dot');
-    const mainImg = document.getElementById('main-display');
+    
+    const menuBtn = document.getElementById('menu-toggle');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const productToggle = document.getElementById('product-toggle');
+    const submenu = document.getElementById('submenu');
+    const exploreBtn = document.getElementById('explore-btn');
+    const heroImg = document.getElementById('hero-img');
 
-    dots.forEach(dot => {
-        dot.onclick = function() {
-            // Pak de naam van de foto uit de HTML (de blauwe tekst)
-            const fotoNaam = this.getAttribute('data-img');
-            
-            // Verander de foto bovenin
-            mainImg.src = fotoNaam;
+    // 1. Hamburger Openen
+    menuBtn.addEventListener('click', () => {
+        mobileMenu.classList.toggle('active');
+    });
 
-            // Verplaats de blauwe cirkel
-            dots.forEach(d => d.classList.remove('active'));
-            this.classList.add('active');
-        };
+    // 2. Submenu Openen
+    productToggle.addEventListener('click', () => {
+        submenu.classList.toggle('open');
+    });
+
+    // 3. Scroll Actie
+    exploreBtn.addEventListener('click', () => {
+        heroImg.style.transform = 'scale(1.1)';
+        setTimeout(() => {
+            document.getElementById('tech-section').scrollIntoView({ behavior: 'smooth' });
+        }, 300);
+    });
+
+    // 4. Cart Teller
+    let count = 0;
+    document.querySelectorAll('.btn-add').forEach(btn => {
+        btn.addEventListener('click', () => {
+            count++;
+            document.getElementById('cart-count').innerText = count;
+            btn.innerText = "Toegevoegd!";
+            setTimeout(() => { btn.innerText = "In Winkelwagen"; }, 1000);
+        });
     });
 });
