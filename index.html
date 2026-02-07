@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NovaTech | Best Verkocht</title>
+    <title>NovaTech Store</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
@@ -20,29 +20,27 @@
                 <div class="submenu-container">
                     <button class="menu-item" id="product-toggle">📦 Producten ▾</button>
                     <div class="submenu-items" id="submenu">
-                        <a href="tvs.html" class="menu-sub-item">📺 Alle TV's</a>
-                        <a href="iphones.html" class="menu-sub-item">📱 Alle iPhones</a>
-                        <a href="airpods.html" class="menu-sub-item">🎧 Alle Airpods</a>
+                        <a href="#tv-sectie" class="menu-sub-item">📺 Alle TV's</a>
+                        <a href="#telefoons" class="menu-sub-item">📱 Alle iPhones</a>
+                        <a href="#airpods" class="menu-sub-item">🎧 Alle AirPods</a>
                     </div>
                 </div>
                 <a href="#contact" class="menu-item">📞 Contact</a>
             </div>
         </div>
         <div class="logo">Nova<span>Tech</span></div>
-        <div class="nav-right">
-            <button class="cart-btn">🛒 <span id="cart-count">0</span></button>
-        </div>
+        <button class="cart-btn">🛒 <span id="cart-count">0</span></button>
     </div>
 </nav>
 
 <section class="tv-hero">
     <div class="tv-image-container">
-        <img src="https://www.intelligenthq.com/wp-content/uploads/2020/09/How-Tech-is-Changing-the-Way-we-Work.jpg" alt="Hero" id="hero-img">
+        <img src="https://www.intelligenthq.com/wp-content/uploads/2020/09/How-Tech-is-Changing-the-Way-we-Work.jpg" alt="Hero">
         <div class="hero-overlay">
             <div class="hero-content">
                 <h1>NovaTech</h1>
-                <p>Ontdek onze absolute bestsellers.</p>
-                <button class="scroll-btn" id="explore-btn">Best Verkocht ↓</button>
+                <p>De beste tech van 2026.</p>
+                <button class="scroll-btn" onclick="scrollToIphone()">Ontdek nu ↓</button>
             </div>
         </div>
     </div>
@@ -52,35 +50,35 @@
     <section id="best-verkocht" class="products">
         <h2 class="section-title">🔥 Best Verkocht</h2>
         
-        <h3 class="category-subtitle">Top Televisies</h3>
+        <h3 class="category-subtitle">| Top Televisies</h3>
         <div class="product-grid">
             <div class="product-card">
-                <img src="https://images.unsplash.com/photo-1593359677879-a4bb92f829d1?w=400" alt="TV 1">
+                <img src="https://images.unsplash.com/photo-1593359677879-a4bb92f829d1?w=400" alt="TV">
                 <h3>Neo QLED 8K</h3>
                 <p class="price">€1.499,00</p>
                 <button class="btn-add">In Winkelwagen</button>
             </div>
             <div class="product-card">
-                <img src="https://images.unsplash.com/photo-1509281373149-e957c6296406?w=400" alt="TV 2">
+                <img src="https://images.unsplash.com/photo-1509281373149-e957c6296406?w=400" alt="TV">
                 <h3>OLED Ultra Slim</h3>
                 <p class="price">€1.299,00</p>
                 <button class="btn-add">In Winkelwagen</button>
             </div>
             <div class="product-card">
-                <img src="https://images.unsplash.com/photo-1593784991095-a205069470b6?w=400" alt="TV 3">
+                <img src="https://images.unsplash.com/photo-1593784991095-a205069470b6?w=400" alt="TV">
                 <h3>Crystal UHD 4K</h3>
                 <p class="price">€899,00</p>
                 <button class="btn-add">In Winkelwagen</button>
             </div>
             <div class="product-card">
-                <img src="https://images.unsplash.com/photo-1560169897-bb334e554b7c?w=400" alt="TV 4">
+                <img src="https://images.unsplash.com/photo-1560169897-bb334e554b7c?w=400" alt="TV">
                 <h3>The Frame Edition</h3>
                 <p class="price">€1.099,00</p>
                 <button class="btn-add">In Winkelwagen</button>
             </div>
         </div>
 
-        <h3 class="category-subtitle">Populaire iPhones</h3>
+        <h3 id="telefoons" class="category-subtitle">| Populaire iPhones</h3>
         <div class="product-grid">
             <div class="product-card">
                 <img src="https://images.unsplash.com/photo-1696446701796-da61225697cc?w=400" alt="iPhone 15">
@@ -88,12 +86,14 @@
                 <p class="price">€799,00</p>
                 <button class="btn-add">In Winkelwagen</button>
             </div>
-            <div class="product-card">
-                <img src="https://images.unsplash.com/photo-1727181611090-67c85859944a?w=400" alt="iPhone 16">
-                <h3>iPhone 16</h3>
+            
+            <div class="product-card" id="target-iphone">
+                <img src="iphone16-zwart.png" alt="iPhone 16 Zwart">
+                <h3>iPhone 16 Zwart</h3>
                 <p class="price">€969,00</p>
                 <button class="btn-add">In Winkelwagen</button>
             </div>
+            
             <div class="product-card">
                 <img src="https://images.unsplash.com/photo-1727281033230-0199e1bc9891?w=400" alt="iPhone 16 Pro">
                 <h3>iPhone 16 Pro Max</h3>
@@ -102,29 +102,49 @@
             </div>
         </div>
 
-        <h3 class="category-subtitle">AirPods Essentials</h3>
+        <h3 id="airpods" class="category-subtitle">| AirPods</h3>
         <div class="product-grid">
             <div class="product-card">
-                <img src="https://images.unsplash.com/photo-1588423770574-f199ba273b13?w=400" alt="Airpods 4">
+                <img src="https://images.unsplash.com/photo-1588423770574-f199ba273b13?w=400" alt="AirPods 4">
                 <h3>AirPods 4</h3>
                 <p class="price">€149,00</p>
                 <button class="btn-add">In Winkelwagen</button>
             </div>
             <div class="product-card">
-                <img src="https://images.unsplash.com/photo-1600294037681-c80b4cb5b434?w=400" alt="Airpods Pro">
+                <img src="https://images.unsplash.com/photo-1600294037681-c80b4cb5b434?w=400" alt="AirPods Pro">
                 <h3>AirPods Pro 2</h3>
-                <p class="price">€239,00</p>
+                <p class="price">€279,00</p>
                 <button class="btn-add">In Winkelwagen</button>
             </div>
         </div>
     </section>
 
-    <section id="contact" class="products" style="background:#f9f9f9;">
+    <section id="contact" class="products" style="background:#f9f9f9; text-align: center;">
         <h2>Contact</h2>
         <p>Techstraat 101, Eindhoven | info@novatech.nl</p>
     </section>
 </main>
 
-<script src="script.js"></script>
+<script>
+    // Functie voor de knop
+    function scrollToIphone() {
+        const element = document.getElementById("target-iphone");
+        element.scrollIntoView({ behavior: "smooth", block: "center" });
+        
+        // Laat de iPhone even oplichten
+        element.style.transition = "0.5s";
+        element.style.boxShadow = "0 0 30px #00c3ff";
+        setTimeout(() => { element.style.boxShadow = "none"; }, 1500);
+    }
+
+    // Menu interactie
+    document.getElementById('menu-toggle').onclick = function() {
+        document.getElementById('mobile-menu').classList.toggle('active');
+    };
+    document.getElementById('product-toggle').onclick = function() {
+        document.getElementById('submenu').classList.toggle('open');
+    };
+</script>
+
 </body>
 </html>
