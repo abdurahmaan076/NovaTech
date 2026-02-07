@@ -4,51 +4,46 @@ document.addEventListener('DOMContentLoaded', () => {
     const productToggle = document.getElementById('product-toggle');
     const submenu = document.getElementById('submenu');
     const exploreBtn = document.getElementById('explore-btn');
-    const heroImg = document.getElementById('hero-img');
 
-    // 1. Hamburger menu openen en sluiten
-    if (menuBtn) {
-        menuBtn.addEventListener('click', (e) => {
-            e.stopPropagation();
-            mobileMenu.classList.toggle('active');
-        });
-    }
+    // 1. Menu toggles
+    menuBtn.onclick = (e) => {
+        e.stopPropagation();
+        mobileMenu.classList.toggle('active');
+    };
 
-    // 2. Submenu Producten openklappen
-    if (productToggle) {
-        productToggle.addEventListener('click', (e) => {
-            e.preventDefault();
-            e.stopPropagation();
-            submenu.classList.toggle('open');
-        });
-    }
+    productToggle.onclick = (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        submenu.classList.toggle('open');
+    };
 
-    // 3. Menu sluiten bij link-klik of klik buiten menu
-    document.addEventListener('click', (e) => {
-        if (!mobileMenu.contains(e.target) && !menuBtn.contains(e.target)) {
-            mobileMenu.classList.remove('active');
-        }
-    });
+    // 2. Ontdek nu: Kies een willekeurige TV
+    exploreBtn.onclick = () => {
+        const tvs = document.querySelectorAll('.tv-item');
+        const randomIndex = Math.floor(Math.random() * tvs.length);
+        const randomTv = tvs[randomIndex];
 
-    // 4. Ontdek knop scroll actie
-    if (exploreBtn) {
-        exploreBtn.addEventListener('click', () => {
-            if (heroImg) heroImg.style.transform = 'scale(1.1)';
-            setTimeout(() => {
-                document.getElementById('tech-section').scrollIntoView({ behavior: 'smooth' });
-            }, 300);
-        });
-    }
+        // Scroll naar de TV
+        randomTv.scrollIntoView({ behavior: 'smooth', block: 'center' });
 
-    // 5. Winkelwagen teller
+        // Geef de gekozen TV even een blauwe rand
+        tvs.forEach(tv => tv.classList.remove('highlight-tv'));
+        setTimeout(() => {
+            randomTv.classList.add('highlight-tv');
+        }, 500);
+    };
+
+    // 3. Winkelwagen
     let count = 0;
     document.querySelectorAll('.btn-add').forEach(btn => {
-        btn.addEventListener('click', () => {
+        btn.onclick = () => {
             count++;
             document.getElementById('cart-count').innerText = count;
-            const originalText = btn.innerText;
-            btn.innerText = "Toegevoegd!";
-            setTimeout(() => { btn.innerText = originalText; }, 1000);
-        });
+            btn.innerText = "✅";
+            setTimeout(() => { btn.innerText = "In Winkelwagen"; }, 1000);
+        };
     });
+
+    // Sluit menu bij klik buiten
+    document.onclick = () => mobileMenu.classList.remove('active');
 });
