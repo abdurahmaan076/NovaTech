@@ -1,43 +1,46 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <style>
-  nav {
-    background-color: white;  /* Maakt de balk wit */
-    text-align: center;       /* Zet alles in de nav in het midden */
-    padding: 20px;            /* Geeft de balk wat ademruimte */
-  }
-
-  ul {
-    list-style-type: none;    /* Haalt die zwarte puntjes weg */
-    padding: 0;
-  }
-
-  li {
-    display: inline;          /* Zet de linkjes naast elkaar i.p.v. onder elkaar */
-    margin: 0 15px;           /* Geeft ruimte tussen de woorden */
-  }
-</style>
     <title>NovaTech | Elektronica</title>
+    <style>
+        /* Dit stukje zorgt voor het uiterlijk */
+        nav {
+            background-color: white; /* De achtergrondkleur van de bar */
+            padding: 10px;           /* Wat ruimte om de tekst heen */
+            border-bottom: 1px solid #ddd; /* Een subtiel lijntje aan de onderkant */
+        }
+
+        .center-text {
+            text-align: center;      /* Dit zet de tekst in het midden */
+        }
+
+        nav ul {
+            list-style-type: none;   /* Haalt de zwarte puntjes weg */
+            display: flex;           /* Zet de linkjes naast elkaar */
+            justify-content: center; /* Zet het hele menu in het midden */
+            padding: 0;
+        }
+
+        nav li {
+            margin: 0 15px;          /* Ruimte tussen de linkjes */
+        }
+    </style>
 </head>
 <body>
 
     <nav>
+        <div class="center-text">
+            <h1 style="margin: 0;">NovaTech</h1>
+        </div>
+
         <ul>
-            <li>
-                <a href="index.html">Home</a>
-            </li>
-            <li>
-                <a href="winkelwagen.html">Winkelwagen</a>
-            </li>
-            <li>
-                <a href="Auto.html">Auto</a>
-            </li>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="winkelwagen.html">Winkelwagen</a></li>
+            <li><a href="Auto.html">Auto</a></li>
         </ul>
     </nav>
 
-    <h1>NovaTech</h1>
-    <p>Welkom in mijn shop.</p>
+    <p class="center-text">Welkom in mijn shop.</p>
 
 </body>
 </html>
